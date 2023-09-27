@@ -1,4 +1,8 @@
 # Frontend for BITS Buy
+**Description**
+This repository is the frontend for the CS F213 project.
+The framework used is Reactjs.
+The backend for this project can be found at this [repository](github.com/akamikado/bits_buy_backend)
 
 **Development**
 
