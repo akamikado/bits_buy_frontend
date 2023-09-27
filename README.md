@@ -3,8 +3,8 @@
 **Description**
 
 
-This repository is the frontend for the CS F213 project.
-The framework used is Reactjs.
+This repository is the frontend for the CS F213 project.  
+The framework used is Reactjs.  
 The backend for this project can be found at this [repository](https://github.com/akamikado/bits_buy_backend)
 
 **Development**
@@ -16,4 +16,4 @@ The backend for this project can be found at this [repository](https://github.co
 **Environment Variables**
 
 
-REACT_APP_CLIENT_ID - Google project client id
+REACT_APP_CLIENT_ID - Google project client id  
