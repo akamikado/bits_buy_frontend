@@ -1,0 +1,37 @@
+body {
+  background-color: #150724;
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto';
+  color: white;
+}
+
+.user-profile-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  padding: 20px;
+}
+
+.user-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, 0.1);
+  padding: 20px;
+  border-radius: 10px;
+  max-width: 400px;
+  margin-bottom: 20px;
+}
+
+
+
+h1 {
+  font-size: 24px;
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
