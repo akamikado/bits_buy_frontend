@@ -1,4 +1,4 @@
-import { FeatureCard } from "../components/Card";
+import { FeatureCard } from "../../components/Card";
 function Sell(){
     return(
         <div>
