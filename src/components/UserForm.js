@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { TextInput, PasswordInput, Tooltip, Center, Text, rem, Button } from '@mantine/core';
 import { IconInfoCircle } from '@tabler/icons-react';
 import classes from './UserForm.module.css';
@@ -32,41 +32,55 @@ function EmailInput(){
 }
 
 function PassInput() {
-  const [opened, setOpened] = useState(false);
-  const [value, setValue] = useState('');
-  const valid = value.trim().length ===13;
   return (
-    <Tooltip
-      label={valid ? 'All good!' : 'Phone Number should have +91 and 10 digits'}
-      position="bottom-start"
-      withArrow
-      opened={opened}
-      color={valid ? 'teal' : undefined}
-      withinPortal
-    >
-      <PasswordInput
-        label="Enter Phone Number"
-        required
-        placeholder="Ph.no."
-        onFocus={() => setOpened(true)}
-        onBlur={() => setOpened(false)}
-        mt="md"
-        value={value}
-        onChange={(event) => setValue(event.currentTarget.value)}
-        className={classes['password-input']}
-      />
-    </Tooltip>
+    <TextInput
+      rightSection={ToolTipIcon}
+      label="Phone Number"
+      type="phoneNo"
+      required
+      placeholder=""
+      className={classes['text-input']}
+    />
+  );
+}
+
+function HostelInput(){
+  return (
+    <TextInput
+      rightSection={ToolTipIcon}
+      label="Hostel"
+      type="hostel"
+      required
+      placeholder=""
+      className={classes['text-input']}
+    />
+  );
+}
+
+function NameInput(){
+  return (
+    <TextInput
+      rightSection={ToolTipIcon}
+      label="Name"
+      type="name"
+      required
+      placeholder=""
+      className={classes['text-input']}
+    />
   );
 }
 
 export function UserForm() {
-  const [userEmail, setUserEmail] = useState('');
   const [userPhone, setUserPhone] = useState('');
+  const [userHostel,setUserHostel] =useState('');
+  const [userName,setUserName] =useState('');
   const [errorMessage, setErrorMessage] = useState('');
+  const userEmail=''
 
   const FormSubmissionHandler = async (event) => {
     event.preventDefault(); // Prevent default form submission
     try {
+      console.log(userName + userHostel)
       const response = await fetch('xyz.com', {
         method: 'POST',
         headers: {
@@ -75,6 +89,8 @@ export function UserForm() {
         body: JSON.stringify({
           email: userEmail,
           phone: userPhone,
+          name:userName,
+          hostel:userHostel
         }),
       });
       const responseData = await response.json();
@@ -91,8 +107,11 @@ export function UserForm() {
 
   return (
     <>
-      <EmailInput value={userEmail} onChange={(event) => setUserEmail(event.currentTarget.value)} />
+      <EmailInput value={userEmail} disabled />
       <PassInput value={userPhone} onChange={(event) => setUserPhone(event.currentTarget.value)} />
+      <HostelInput value={userHostel} onChange={(event)=>{setUserHostel(event.currentTarget.value)}}/>
+      <NameInput value={userName} onChange={(event)=>{setUserName(event.currentTarget.value)}}/>
+      
       {errorMessage && <p className={classes['error-message']}>{errorMessage}</p>}
       <Button variant="light" color="teal" size="lg" radius="xl" onClick={FormSubmissionHandler}>
         Submit
