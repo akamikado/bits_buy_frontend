@@ -4,7 +4,7 @@ import classes from "./HomePage.module.css";
 import Item from "../../components/Item";
 
 
-function HomePage(props) {
+function HomePage() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const [isItemVisible, setIsItemVisible] = useState(true);
   const toggleNavbar = () => {

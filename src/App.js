@@ -3,7 +3,7 @@ import { MantineProvider } from "@mantine/core";
 import LoginPage from "./views/LoginPage/LoginPage";
 import HomePage from "./views/HomePage/HomePage";
 import UserProfile from "./views/Profile/UserProfile";
-import Search from "./views/Search/Search";
+import Search from "./views/Profile/UserProfile";
 import Chat from "./views/Chat/Chat";
 import Sell from "./views/Sell/Sell";
 
