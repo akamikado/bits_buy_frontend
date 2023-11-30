@@ -6,19 +6,15 @@ import Item from "../../components/Item";
 
 function HomePage() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
-
   const [isItemVisible, setIsItemVisible] = useState(true);
-
   const toggleNavbar = () => {
     setIsNavbarOpen((prevIsNavbarOpen) => !prevIsNavbarOpen);
     setIsItemVisible(false);
   };
-
   const closeNavbar = () => {
     setIsNavbarOpen(false);
     setIsItemVisible(true);
   };
-
   return (
     <div className={classes["home-page-container"]}>
       {/* Navigation button */}

@@ -3,8 +3,8 @@ import { TextInput, PasswordInput, Tooltip, Center, Text, rem, Button } from '@m
 import { IconInfoCircle } from '@tabler/icons-react';
 import classes from './UserForm.module.css';
 
-function TooltipIcon() {
-  const rightSection = (
+
+  const ToolTipIcon = (
     <Tooltip
       label="We store your data securely"
       position="top-end"
@@ -18,24 +18,26 @@ function TooltipIcon() {
       </Text>
     </Tooltip>
   );
-
+function EmailInput(){
   return (
     <TextInput
-      rightSection={rightSection}
-      label="Name"
+      rightSection={ToolTipIcon}
+      label="Email"
+      type="email"
+      required
       placeholder=""
       className={classes['text-input']}
     />
   );
 }
 
-function TooltipFocus() {
+function PassInput() {
   const [opened, setOpened] = useState(false);
   const [value, setValue] = useState('');
-  const valid = value.trim().length >= 6;
+  const valid = value.trim().length ===13;
   return (
     <Tooltip
-      label={valid ? 'All good!' : 'Phone Number should have +91'}
+      label={valid ? 'All good!' : 'Phone Number should have +91 and 10 digits'}
       position="bottom-start"
       withArrow
       opened={opened}
@@ -58,11 +60,43 @@ function TooltipFocus() {
 }
 
 export function UserForm() {
+  const [userEmail, setUserEmail] = useState('');
+  const [userPhone, setUserPhone] = useState('');
+  const [errorMessage, setErrorMessage] = useState('');
+
+  const FormSubmissionHandler = async (event) => {
+    event.preventDefault(); // Prevent default form submission
+    try {
+      const response = await fetch('xyz.com', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email: userEmail,
+          phone: userPhone,
+        }),
+      });
+      const responseData = await response.json();
+      if (!response.ok) {
+        throw new Error(`Error: ${responseData.message}`);
+      }
+      // Handle successful response
+      console.log('User data successfully submitted:', responseData);
+    } catch (error) {
+      setErrorMessage(`Error: ${error.message}`);
+      console.error('Error submitting user data:', error);
+    }
+  };
+
   return (
     <>
-      <TooltipIcon />
-      <TooltipFocus />
-      <Button variant="light" color="teal" size="lg" radius="xl" >Submit</Button>
+      <EmailInput value={userEmail} onChange={(event) => setUserEmail(event.currentTarget.value)} />
+      <PassInput value={userPhone} onChange={(event) => setUserPhone(event.currentTarget.value)} />
+      {errorMessage && <p className={classes['error-message']}>{errorMessage}</p>}
+      <Button variant="light" color="teal" size="lg" radius="xl" onClick={FormSubmissionHandler}>
+        Submit
+      </Button>
     </>
   );
 }

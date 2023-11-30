@@ -7,8 +7,8 @@
     align-items: center;
     justify-content: center;
     height: 100vh;
-    background-color: #150724; /* Updated background color (blackish-grey-purple) */
-    color: #fff; /* Text color */
+    background-color: #E0E1DD; /* Updated background color (blackish-grey-purple) */
+    color: #001D3D; /* Text color */
   }
   
   /* Style for the 'Experience' text */
@@ -29,8 +29,8 @@
   }
   
   .login-button {
-    background-color: #d35934 !important; /* Darker shade of orange for the button */
-    color: #fff; /* Text color */
+    background-color: #FFD60A !important; /* Darker shade of orange for the button */
+    color: #001D3D !important; /* Text color */
     padding: 10px 20px;
     border: none;
     cursor: pointer;
@@ -42,6 +42,6 @@
   }
   
   .login-button:hover {
-    background-color: #ff6f42 !important; /* Lighter shade of orange on hover */
+    background-color: #FFC300 !important; /* Lighter shade of orange on hover */
   }
   

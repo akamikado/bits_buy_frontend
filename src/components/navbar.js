@@ -10,6 +10,7 @@ import {
   IconSwitchHorizontal,
   IconLogout,
   IconLetterB,
+  IconHome
 } from "@tabler/icons-react";
 
 import classes from "./navbar.module.css";
@@ -19,6 +20,7 @@ const data = [
   { link: "/Search", label: "Search", icon: IconSearch },
   { link: "/Chat", label: "Chat", icon: IconMessages },
   { link: "/Sell", label: "Sell", icon: IconCoin },
+  { link: "/home", label: "Home", icon: IconHome}
 ];
 
 function Navbar({isOpen}) {
