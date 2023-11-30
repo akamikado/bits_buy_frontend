@@ -1,24 +1,26 @@
 import { RouterProvider, createBrowserRouter } from "react-router-dom";
 import { MantineProvider } from "@mantine/core";
-import LoginPage from "./pages/LoginPage";
-import HomePage from "./pages/HomePage";
-import UserProfile from "./pages/UserProfile";
-import Search from "./pages/Search";
-import Chat from "./pages/Chat";
-import Sell from "./pages/Sell";
-import ProductPage from "./pages/ProductPage";
-import AddProduct from "./pages/AddProduct";
+import LoginPage from "./views/LoginPage/LoginPage";
+import HomePage from "./views/HomePage/HomePage";
+import UserProfile from "./views/Profile/UserProfile";
+import Search from "./views/Search/Search";
+import Chat from "./views/Chat/Chat";
+import Sell from "./views/Sell/Sell";
+
 function App() {
   const router = createBrowserRouter([
     { path: "/", element: <LoginPage /> },
-    { path: "/home", element: <HomePage /> },
-    { path: "/UserProfile", element: <UserProfile /> },
-    { path: "/Search", element: <Search /> },
-    { path: "/Chat", element: <Chat /> },
-    { path: "/Sell", element: <Sell /> },
-    { path: "/ProductPage", element: <ProductPage />},
-    { path: "/AddProduct", element: <AddProduct />},
+    {path:'/admin', element:<div></div>, children:[
+      { path: "/home", element: <HomePage /> },
+    { path: "/profile", element: <UserProfile /> },
+    {path:'/search/:product'},
+    { path: "/search", element: <Search /> },
+    {path:'/chat/:chatId'},
+    { path: "/chat", element: <Chat /> },
+    { path: "/sell", element: <Sell /> }
+    ]}
   ]);
+
 
   return (
     <div>
