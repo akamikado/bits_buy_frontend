@@ -1,9 +1,9 @@
-import { FeatureCard } from "../components/Card";
 import { useState } from "react";
 import Navbar from "../components/navbar";
-import classes from "./Sell.module.css";
-import { Link } from "react-router-dom";
-function Sell() {
+import classes from "./ProductPage.module.css";
+//import Item from "../components/Item";
+import FeatureCard2 from "../components/Card2";
+export function ProductPage() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const toggleNavbar = () => {
     setIsNavbarOpen((prevIsNavbarOpen) => !prevIsNavbarOpen);
@@ -14,31 +14,26 @@ function Sell() {
   return (
     <div className={classes["home-page-container"]}>
       {!isNavbarOpen && (
-        <>
         <button onClick={toggleNavbar} className={classes["nav-button"]}>
           &#9776;
         </button>
-        <Link to="/AddProduct">
-        <button className={classes["plus-button"]}>+</button>
-        </Link>
-        </>
       )}
       {isNavbarOpen && (
         <div className={classes["overlay"]} onClick={closeNavbar}></div>
       )}
       {/* Navbar */}
       {isNavbarOpen && <Navbar isOpen={isNavbarOpen} />}
+
       {!isNavbarOpen && (
-        <div>
-          <h1>Sell</h1>
-          <div>
-            <FeatureCard productName="Lolla"/>
-            <FeatureCard />
-          </div>
+        <div className={classes.ProductContainer}>
+          <FeatureCard2 
+          
+          productName="OnePlus" description="It's a brand new phone" 
+          discount="10% off" currentPrice="$1000" priceInfo="Biddin's up and runnin" />
         </div>
       )}
     </div>
   );
 }
 
-export default Sell;
+export default ProductPage;

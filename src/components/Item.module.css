@@ -1,41 +1,76 @@
-.card {
-  background-color: #fffff0c9;
-  padding: 20px;
-  padding-bottom: 1rem;
-  border-radius: 10px;
-  
-  text-align: left;
-  margin-bottom: 20px;
-  margin-left: 10px;
-  max-width: 300px;
+/* Item.module.css */
+.card-container {
+  display: flex;
+  justify-content: space-between;
 }
 
-/* Styling for the h2 element within the card */
+.card {
+  background-color: #525B76;
+  padding: 20px;
+  border-radius: 10px;
+  text-align: left;
+  margin-bottom: 20px;
+  width: 300px;
+  max-height:300px;
+  overflow: hidden;
+}
+
+.card-img {
+  width: 100%; 
+  height: auto; 
+  border-radius: 5px;
+  margin-bottom: 10px;
+}
+
+
 .card-h2 {
-  font-size: 24px;
-  color: #150724;
+  font-size: 18px;
+  color: whitesmoke;
   margin-top: 10px;
   margin-bottom: 10px;
   font-family: "Roboto";
   font-weight: bolder;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-/* Styling for the button within the card */
+.card-description {
+  font-size: 14px;
+  color: #ccc;
+  margin-bottom: 10px;
+  max-height:50px;
+  overflow:hidden;
+}
+
 .card-btn {
-  background-color: #28a745;
+  background-color: #3ab25a;
   color: #fff;
   border: none;
   padding: 10px 20px;
   border-radius: 5px;
   cursor: pointer;
   transition: background-color 0.3s;
-  font-size: 18px;
-  margin-top: 10px;
+  font-size: 14px;
   font-family: "Roboto";
   font-weight: bold;
 }
 
-/* Styling for the button hover effect within the card */
-.card-btn:hover {
-  background-color: #3ab25a;
+/*.card-btn2{
+  margin-left:35%;
+  background-color: #00A6A6;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+  font-size: 14px;
+  font-family: "Roboto";
+  font-weight: bold;
 }
+
+.card-btn,.card-btn2:hover {
+  background-color: #3ab25a;
+}*/
+

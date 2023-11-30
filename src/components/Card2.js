@@ -6,7 +6,7 @@ import {
   IconLetterC,
   IconLetterD,
 } from "@tabler/icons-react";
-import classes from "./Card.module.css";
+import classes from "./Card2.module.css";
 
 const mockdata = [
   { label: "Fast", icon: IconLetterD },
@@ -15,7 +15,7 @@ const mockdata = [
   { label: "Dumb", icon: IconLetterA },
 ];
 
-export function FeatureCard(props) {
+export function FeatureCard2(props) {
   const features = mockdata.map((feature) => (
     <Center key={feature.label}>
       <feature.icon size="1.05rem" className={classes.icon} stroke={1.5} />
@@ -69,4 +69,4 @@ export function FeatureCard(props) {
   );
 }
 
-export default FeatureCard;
+export default FeatureCard2;

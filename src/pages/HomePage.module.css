@@ -1,6 +1,11 @@
-/* HomePage.module.css */
-
-/* Styles for HomePage component */
+body{
+  margin:0;
+  padding:0;
+  font-family: "roboto";
+  background-color: #E0E1DD;
+  height:100%;
+  width:100%;
+}
 .home-page-container {
   position: relative;
   display: flex;
@@ -8,7 +13,7 @@
   align-items: left;
   justify-content: center;
   height: 100vh;
-  background-color: #150724;
+  background-color: #E0E1DD;
 }
 
 .nav-button {
@@ -16,8 +21,8 @@
   width: 40px;
   height: 40px;
   border-radius: 50%;
-  background-color: #ff6f42;
-  color: #ffffff;
+  background-color: #FFD60A;
+  color: #5E5C6C;
   border: none;
   position: absolute;
   top: 10px;
@@ -32,12 +37,22 @@
 /* Styles for the items container */
 .items-container {
   margin-top: 20px;
+  margin-bottom:20px;
   padding: 20px;
-  background-color: #150724;
+  background-color: #E0E1DD;
   border-radius: 10px;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  z-index: 1; /* Ensure items are behind the navbar when it's open */
-  align-items: center;
+  z-index: 1; 
+  display:grid;
+  grid-template-rows: repeat(25,1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap:20px;
+  max-width:70%;
+  height:90%;
+  margin-left:15%;
+  max-height: calc(100vh-100px);
+  overflow-y:auto;
+  overflow-x:auto;
 }
 
 /* Styles for the overlay */
@@ -48,5 +63,5 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
-  z-index: 2; /* Place it above the items but below the navbar */
+  z-index: 2; 
 }

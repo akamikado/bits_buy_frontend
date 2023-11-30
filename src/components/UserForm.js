@@ -66,7 +66,6 @@ export function UserForm() {
 
   const FormSubmissionHandler = async (event) => {
     event.preventDefault(); // Prevent default form submission
-
     try {
       const response = await fetch('xyz.com', {
         method: 'POST',
@@ -78,13 +77,10 @@ export function UserForm() {
           phone: userPhone,
         }),
       });
-
       const responseData = await response.json();
-
       if (!response.ok) {
         throw new Error(`Error: ${responseData.message}`);
       }
-
       // Handle successful response
       console.log('User data successfully submitted:', responseData);
     } catch (error) {
