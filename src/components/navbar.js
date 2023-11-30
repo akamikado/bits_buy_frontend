@@ -16,11 +16,10 @@ import {
 import classes from "./navbar.module.css";
 import '@mantine/core/styles.css'
 const data = [
-  { link: "/UserProfile", label: "Profile", icon: IconUserCircle },
-  { link: "/Search", label: "Search", icon: IconSearch },
-  { link: "/Chat", label: "Chat", icon: IconMessages },
-  { link: "/Sell", label: "Sell", icon: IconCoin },
-  { link: "/home", label: "Home", icon: IconHome}
+  { link: "/admin/profile", label: "Profile", icon: IconUserCircle },
+  { link: "/admin/search", label: "Search", icon: IconSearch },
+  { link: "/admin/chat", label: "Chat", icon: IconMessages },
+  { link: "/admin/sell", label: "Sell", icon: IconCoin },
 ];
 
 function Navbar({isOpen}) {
