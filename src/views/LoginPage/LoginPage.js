@@ -1,13 +1,13 @@
-import { useGoogleLogin } from "@react-oauth/google";
+import { GoogleLogin, useGoogleOneTapLogin } from "@react-oauth/google";
+import { redirect } from 'react-router-dom';
 
 function LoginPage() {
-  const login = useGoogleLogin({
-    onSuccess: async (tokenResponse) => {
-      console.log(tokenResponse);
+  useGoogleOneTapLogin({
+    onSuccess:async (credentialResponse) => {
       const response = await fetch(
         "https://www.googleapis.com/oauth2/v3/userinfo",
         {
-          headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
+          headers: { Authorization: `Bearer ${credentialResponse}` },
         }
       );
       const userInfo = await response.json();
@@ -16,10 +16,33 @@ function LoginPage() {
         body: JSON.stringify(userInfo.email.substring(0, 9)),
       });
     },
-    hosted_domain: "hyderabad.bits-pilani.ac.in",
+    onError: () => {
+      console.log('Login Failed');
+    },
+    hosted_domain: 'hyderabad.bits-pilani.ac.in'
   });
-
-  return <button onClick={() => login()}>Sign in with Google 🚀 </button>;
+  
+  return <GoogleLogin
+    onSuccess={async credentialResponse => {
+      console.log(credentialResponse)
+      const response = await fetch(
+        "https://www.googleapis.com/oauth2/v3/userinfo",
+        {
+          headers: { Authorization: `Bearer ${credentialResponse}` },
+        }
+      );
+      const userInfo = await response.json();
+      const checkProfileFilled = await fetch("localhost:8080/", {
+        method: "POST",
+        body: JSON.stringify(userInfo.email.substring(0, 9)),
+      });
+    }}
+    onError={() => {
+      console.log('Login Failed');
+    }}
+    hosted_domain='hyderabad.bits-pilani.ac.in'
+    useOneTap
+  />
 }
 
 export default LoginPage;

@@ -1,43 +1,44 @@
+import { FeatureCard } from "../../components/Card";
 import { useState } from "react";
 import Navbar from "../../components/navbar";
-import classes from "./HomePage.module.css";
-import Item from "../../components/Item";
-
-
-function HomePage() {
+import classes from "./Sell.module.css";
+import { Link } from "react-router-dom";
+function Sell() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
-  const [isItemVisible, setIsItemVisible] = useState(true);
   const toggleNavbar = () => {
     setIsNavbarOpen((prevIsNavbarOpen) => !prevIsNavbarOpen);
-    setIsItemVisible(false);
   };
   const closeNavbar = () => {
     setIsNavbarOpen(false);
-    setIsItemVisible(true);
   };
   return (
     <div className={classes["home-page-container"]}>
-      {/* Navigation button */}
       {!isNavbarOpen && (
+        <>
         <button onClick={toggleNavbar} className={classes["nav-button"]}>
           &#9776;
         </button>
+        <Link to="/AddProduct">
+        <button className={classes["plus-button"]}>+</button>
+        </Link>
+        </>
       )}
       {isNavbarOpen && (
         <div className={classes["overlay"]} onClick={closeNavbar}></div>
       )}
       {/* Navbar */}
       {isNavbarOpen && <Navbar isOpen={isNavbarOpen} />}
-      {/* Items */}
-      {isItemVisible && !isNavbarOpen && (
-        <div className={classes['items-container']}>
-          <Item title="Item1"/>
-          <Item title="Item2"/>
-      
+      {!isNavbarOpen && (
+        <div>
+          <h1>Sell</h1>
+          <div>
+            <FeatureCard productName="Lolla"/>
+            <FeatureCard />
+          </div>
         </div>
       )}
     </div>
   );
 }
 
-export default HomePage;
+export default Sell;
