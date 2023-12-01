@@ -12,18 +12,18 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  min-height: 100vh; /* Ensure full viewport height */
+  min-height: 100vh;
   padding: 20px;
 }
 
 /* Styles for the SearchBar component */
 .search-bar {
-  max-width: 400px; /* Adjust the width as needed */
-  background-color: transparent; /* Make the background transparent */
-  margin-bottom: 20px; /* Add spacing between the SearchBar and other content */
+  max-width: 400px; 
+  background-color: transparent; 
+  margin-bottom: 20px; 
 }
 
-/* Styles for the h1 heading */
+
 h1 {
   font-size: 24px;
   text-align: center;
@@ -65,4 +65,24 @@ h1 {
   justify-content: center;
   cursor: pointer;
   z-index: 2;
+}
+
+.items-container {
+  /*margin-top: -800px;*/
+  margin-bottom: 20px;
+  padding: 20px;
+  background-color: #e0e1dd;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+  z-index: 1;
+  display: grid;
+  grid-template-rows: repeat(25, 1fr);
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 20px;
+  max-width: 70%;
+  height: 90%;
+  margin-left: 15%;
+  max-height: calc(100vh - 100px);
+  overflow-y: auto;
+  overflow-x: auto;
 }

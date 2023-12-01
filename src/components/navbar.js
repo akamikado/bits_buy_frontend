@@ -7,7 +7,7 @@ import {
   IconMessages,
   IconCoin,
   IconSearch,
-  IconSwitchHorizontal,
+  //IconSwitchHorizontal,
   IconLogout,
   IconLetterB,
   IconHome
@@ -56,14 +56,14 @@ function Navbar({isOpen}) {
       </div>
 
       <div className={classes.footer}>
-        <a
+        {/*<a
           href="#"
           className={classes.link}
           onClick={(event) => event.preventDefault()}
         >
           <IconSwitchHorizontal className={classes.linkIcon} stroke={1.5} />
           <span>Change account</span>
-        </a>
+        </a>*/}
 
         <a
           href="#"

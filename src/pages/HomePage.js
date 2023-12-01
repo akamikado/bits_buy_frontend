@@ -16,12 +16,14 @@ function HomePage(props) {
     setIsNavbarOpen(false);
     setIsItemVisible(true);
   };
+
   useEffect(()=>{
     fetch("https://fakestoreapi.com/products")
     .then((response)=> response.json())
     .then((data)=>setProducts(data))
     .catch((error)=>console.log("Error fetching data:", error));
   },[])
+  
   return (
     <div className={classes["home-page-container"]}>
      

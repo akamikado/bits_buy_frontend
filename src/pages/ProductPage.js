@@ -27,9 +27,11 @@ export function ProductPage() {
       {!isNavbarOpen && (
         <div className={classes.ProductContainer}>
           <FeatureCard2 
-          
-          productName="OnePlus" description="It's a brand new phone" 
-          discount="10% off" currentPrice="$1000" priceInfo="Biddin's up and runnin" />
+          productName="OnePlus" 
+          description="It's a brand new phone" 
+          discount="10% off" 
+          currentPrice="$1000" 
+          priceInfo="Biddin's up and runnin" />
         </div>
       )}
     </div>
