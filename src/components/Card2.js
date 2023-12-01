@@ -19,7 +19,7 @@ export function FeatureCard2(props) {
   const features = mockdata.map((feature) => (
     <Center key={feature.label}>
       <feature.icon size="1.05rem" className={classes.icon} stroke={1.5} />
-      <Text size="xs">{feature.label}</Text>
+      <Text size="xl">{feature.label}</Text>
     </Center>
   ));
 
@@ -29,38 +29,38 @@ export function FeatureCard2(props) {
         <Image src=" " alt="Tesla Model S" />
       </Card.Section>
 
-      <Group justify="space-between" mt="md">
+      <Group justify="space-between" mt="md" align="center">
         <div>
-          <Text fw={500}>{props.productName}</Text>
-          <Text fz="xs" c="dimmed">
+          <Text fw={600} fz="60">{props.productName}</Text>
+          <Text fz="20" c="dimmed">
             {props.description}
           </Text>
         </div>
-        <Badge variant="outline">{props.discount}</Badge>
+        <Badge variant="outline" style={{ fontSize: "1.2rem" }}>{props.discount}</Badge>
       </Group>
 
       <Card.Section className={classes.section} mt="md">
-        <Text fz="sm" c="dimmed" className={classes.label}>
+        <Text fz="30" c="dimmed" className={classes.label}>
           Features
         </Text>
 
-        <Group gap={8} mb={-8}>
+        <Group gap={8} mb={-8} align="flex-start">
           {features}
         </Group>
       </Card.Section>
 
       <Card.Section className={classes.section}>
-        <Group gap={30}>
+        <Group gap={30} align="center">
           <div>
-            <Text fz="xl" fw={700} style={{ lineHeight: 1 }}>
+            <Text fz="40" fw={700} style={{ lineHeight: 1.2 }}>
               {props.currentPrice}
             </Text>
-            <Text fz="sm" c="dimmed" fw={500} style={{ lineHeight: 1 }} mt={3}>
+            <Text fz="20" c="dimmed" fw={500} style={{ lineHeight: 1.2 }} mt={3}>
               {props.priceInfo}
             </Text>
           </div>
 
-          <Button radius="xl" style={{ flex: 1 }}>
+          <Button radius="10" style={{ flex: 1 }} fz="30" className={classes.bidButton} >
             Bid now!
           </Button>
         </Group>
