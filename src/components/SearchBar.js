@@ -5,18 +5,7 @@ import { IconSearch, IconArrowRight } from '@tabler/icons-react';
 import { useState } from 'react';
 
 export function SearchBar(props) {
-  const theme = useMantineTheme();
-  const [product,setProduct] = useState('');
 
-      const products=await response.json();
-
-      props.onSearch(products);
-    }catch(error){
-      console.error('Error:',error);
-    }
-    
-  }
-  */
   return (
     <TextInput
       radius="xl"

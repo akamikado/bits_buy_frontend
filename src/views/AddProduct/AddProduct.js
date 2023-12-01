@@ -5,6 +5,7 @@ import classes from "./AddProduct.module.css";
 function AddProduct() {
   const [productName, setProductName] = useState("");
   const [imageLink, setImageLink] = useState("");
+  const [productCategory, setProductCategory] = useState("");
   const [productDescription, setProductDescription] = useState("");
   const [basePrice, setBasePrice] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -60,10 +61,18 @@ function AddProduct() {
       value={imageLink}
       onChange={(event) => setImageLink(event.currentTarget.value)}
     />
+    <TextInput
+      label="Product Category"
+      type="text"
+      
+      placeholder=""
+      className={classes["text-input"]}
+      value={productCategory}
+      onChange={(event) => setProductCategory(event.currentTarget.value)}
+    />
 
     <Textarea
       label="Product Description"
-      
       placeholder=""
       className={classes["text-area"]}
       value={productDescription}
