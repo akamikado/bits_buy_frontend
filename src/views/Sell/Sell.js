@@ -1,42 +1,49 @@
-import { useState,useEffect } from "react";
+import { FeatureCard } from "../../components/Card";
+import { useEffect, useState } from "react";
 import Navbar from "../../components/navbar";
-import classes from "./HomePage.module.css";
+import classes from "./Sell.module.css";
+import { Link } from "react-router-dom";
 import Item from "../../components/Item";
 
-
-function HomePage(props) {
+function Sell() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
-  const [isItemVisible, setIsItemVisible] = useState(true);
-  const [products,setProducts] = useState([]);
+  const [products,setProducts] = useState(null);
+  const email=''
+  useEffect(()=>{
+    const response = async()=>{
+      const productResponse = await fetch(`localhost:8080/sell/{email}`);
+      const product= await productResponse.json();
+      setProducts(product.productDetails);
+
+    }
+    response();
+  },[])
   const toggleNavbar = () => {
     setIsNavbarOpen((prevIsNavbarOpen) => !prevIsNavbarOpen);
-    setIsItemVisible(false);
   };
   const closeNavbar = () => {
     setIsNavbarOpen(false);
-    setIsItemVisible(true);
   };
-  useEffect(()=>{
-    fetch("https://fakestoreapi.com/products")
-    .then((response)=> response.json())
-    .then((data)=>setProducts(data))
-    .catch((error)=>console.log("Error fetching data:", error));
-  },[])
   return (
     <div className={classes["home-page-container"]}>
-     
       {!isNavbarOpen && (
+        <>
         <button onClick={toggleNavbar} className={classes["nav-button"]}>
           &#9776;
         </button>
+        <Link to="/admin/sell/add">
+        <button className={classes["plus-button"]}>+</button>
+        </Link>
+        </>
       )}
       {isNavbarOpen && (
         <div className={classes["overlay"]} onClick={closeNavbar}></div>
       )}
-      
+      {/* Navbar */}
       {isNavbarOpen && <Navbar isOpen={isNavbarOpen} />}
-      {isItemVisible && !isNavbarOpen && (
-        <div className={classes['items-container']}>
+      {!isNavbarOpen && (
+        <div>
+          <h1>Sell</h1>
           {products.map((product)=>(
             <Item
             key={product.id}
@@ -52,4 +59,5 @@ function HomePage(props) {
   );
 }
 
-export default HomePage;
+export default Sell;
+
