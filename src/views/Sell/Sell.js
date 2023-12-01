@@ -1,6 +1,6 @@
-import { FeatureCard } from "../components/Card";
+import { FeatureCard } from "../../components/Card";
 import { useState } from "react";
-import Navbar from "../components/navbar";
+import Navbar from "../../components/navbar";
 import classes from "./Sell.module.css";
 import { Link } from "react-router-dom";
 function Sell() {
@@ -42,3 +42,4 @@ function Sell() {
 }
 
 export default Sell;
+

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Navbar from "../components/navbar";
+import Navbar from "../../components/navbar";
 import classes from "./Chat.module.css";
 function Chat(){
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);

@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Navbar from "../components/navbar";
-import UserForm from "../components/UserForm";
+import Navbar from "../../components/navbar";
+import UserForm from "../../components/UserForm";
 import classes from "./UserProfile.module.css";
 function UserProfile() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
