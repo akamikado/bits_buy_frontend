@@ -20,6 +20,7 @@ const data = [
   { link: "/admin/search", label: "Search", icon: IconSearch },
   { link: "/admin/chat", label: "Chat", icon: IconMessages },
   { link: "/admin/sell", label: "Sell", icon: IconCoin },
+  { link: "/admin/home", label: "Home", icon: IconHome}
 ];
 
 function Navbar({isOpen}) {

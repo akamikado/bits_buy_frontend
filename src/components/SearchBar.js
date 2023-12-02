@@ -5,7 +5,7 @@ import { IconSearch, IconArrowRight } from '@tabler/icons-react';
 import { useState } from 'react';
 
 export function SearchBar(props) {
-
+  const [product,setProduct]=useState('');
   return (
     <TextInput
       radius="xl"

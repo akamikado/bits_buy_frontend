@@ -1,13 +1,15 @@
-import { GoogleLogin, useGoogleOneTapLogin } from "@react-oauth/google";
-import { redirect } from 'react-router-dom';
-
+import { useGoogleLogin } from "@react-oauth/google";
+import { Button as MantineButton } from "@mantine/core";
+import classes from "./LoginPage.module.css";
+import "fontsource-roboto";
 function LoginPage() {
-  useGoogleOneTapLogin({
-    onSuccess:async (credentialResponse) => {
+  const login = useGoogleLogin({
+    onSuccess: async (tokenResponse) => {
+      console.log(tokenResponse);
       const response = await fetch(
         "https://www.googleapis.com/oauth2/v3/userinfo",
         {
-          headers: { Authorization: `Bearer ${credentialResponse}` },
+          headers: { Authorization: `Bearer ${tokenResponse.access_token}` },
         }
       );
       const userInfo = await response.json();
@@ -16,33 +18,20 @@ function LoginPage() {
         body: JSON.stringify(userInfo.email.substring(0, 9)),
       });
     },
-    onError: () => {
-      console.log('Login Failed');
-    },
-    hosted_domain: 'hyderabad.bits-pilani.ac.in'
+    hosted_domain: "hyderabad.bits-pilani.ac.in",
   });
-  
-  return <GoogleLogin
-    onSuccess={async credentialResponse => {
-      console.log(credentialResponse)
-      const response = await fetch(
-        "https://www.googleapis.com/oauth2/v3/userinfo",
-        {
-          headers: { Authorization: `Bearer ${credentialResponse}` },
-        }
-      );
-      const userInfo = await response.json();
-      const checkProfileFilled = await fetch("localhost:8080/", {
-        method: "POST",
-        body: JSON.stringify(userInfo.email.substring(0, 9)),
-      });
-    }}
-    onError={() => {
-      console.log('Login Failed');
-    }}
-    hosted_domain='hyderabad.bits-pilani.ac.in'
-    useOneTap
-  />
+
+  return (
+    <div className={classes["login-page"]}>
+    <div>
+    <p className={classes['experience-text']}>experience</p>
+      <h1 className={classes['bitsbuy-header']}>BITSBUY</h1>
+    </div>
+      <MantineButton onClick={login} className={classes["login-button"]}>
+        Login with Google
+      </MantineButton>
+    </div>
+  );
 }
 
 export default LoginPage;

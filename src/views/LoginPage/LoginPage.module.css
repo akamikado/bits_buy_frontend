@@ -1,47 +1,43 @@
-/* LoginPage.module.css */
-
-/* Styles for LoginPage component */
 .login-page {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    height: 100vh;
-    background-color: #E0E1DD; /* Updated background color (blackish-grey-purple) */
-    color: #001D3D; /* Text color */
-  }
-  
-  /* Style for the 'Experience' text */
-  .experience-text {
-    font-size: 20px; /* Reduced font size for 'Experience' */
-    font-weight: bold; /* Bold font weight */
-    font-family: 'Roboto'; /* Use Roboto font */
-    text-align: center;
-  }
-  
-  /* Style for the 'BitsBuy' header */
-  .bitsbuy-header {
-    font-size: 80px; /* Increased font size for 'BitsBuy' */
-    font-weight: bold; /* Bold font weight */
-    font-family: 'Roboto'; /* Use Roboto font */
-    margin-top:-2rem;
-    margin-bottom: 0rem;
-  }
-  
-  .login-button {
-    background-color: #FFD60A !important; /* Darker shade of orange for the button */
-    color: #001D3D !important; /* Text color */
-    padding: 10px 20px;
-    border: none;
-    cursor: pointer;
-    font-size: 18px !important;
-    border-radius: 5px;
-    transition: background-color 0.3s ease !important; /* Smooth color transition on hover */
-    font-weight:bold;
-    font-family: 'Roboto' ; /* Use Roboto font */
-  }
-  
-  .login-button:hover {
-    background-color: #FFC300 !important; /* Lighter shade of orange on hover */
-  }
-  
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  background-color: #150724; /* Updated background color (blackish-grey-purple) */
+  color: #fff; 
+}
+
+
+.experience-text {
+  font-size: 20px; 
+  font-weight: bold; 
+  font-family: 'Roboto'; 
+  text-align: center;
+}
+
+
+.bitsbuy-header {
+  font-size: 80px; 
+  font-weight: bold; 
+  font-family: 'Roboto'; 
+  margin-top:-2rem;
+  margin-bottom: 0rem;
+}
+
+.login-button {
+  background-color: #d35934 !important; 
+  color: #fff; 
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  font-size: 18px !important;
+  border-radius: 5px;
+  transition: background-color 0.3s ease !important; 
+  font-weight:bold;
+  font-family: 'Roboto' ; 
+}
+
+.login-button:hover {
+  background-color: #ff6f42 !important; 
+}

@@ -3,6 +3,7 @@ import React from "react";
 import classes from "./Search.module.css";
 import { useState } from "react";
 import Navbar from "../../components/navbar";
+
 function Search() {
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const toggleNavbar = () => {

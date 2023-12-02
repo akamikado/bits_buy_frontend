@@ -1,9 +1,11 @@
-import { useState } from "react";
-import Navbar from "../components/navbar";
+import { useState, useEffect } from "react";
+import {useParams} from 'react-router-dom';
+import Navbar from "../../components/navbar";
 import classes from "./ProductPage.module.css";
 //import Item from "../components/Item";
-import FeatureCard2 from "../components/Card2";
+import FeatureCard2 from "../../components/Card2";
 export function ProductPage() {
+  const [product, setProduct] = useState(null);
   const [isNavbarOpen, setIsNavbarOpen] = useState(false);
   const toggleNavbar = () => {
     setIsNavbarOpen((prevIsNavbarOpen) => !prevIsNavbarOpen);
@@ -11,6 +13,16 @@ export function ProductPage() {
   const closeNavbar = () => {
     setIsNavbarOpen(false);
   };
+
+  const {productId} = useParams();
+
+  useEffect(() => {
+    fetch(`https://fakestoreapi.com/products/${productId}`)
+      .then((response) => response.json())
+      .then((data) => setProduct(data))
+      .catch((error) => console.log("Error fetching data:", error));
+  },[productId]);
+
   return (
     <div className={classes["home-page-container"]}>
       {!isNavbarOpen && (
@@ -24,15 +36,16 @@ export function ProductPage() {
       {/* Navbar */}
       {isNavbarOpen && <Navbar isOpen={isNavbarOpen} />}
 
-      {!isNavbarOpen && (
+      {!isNavbarOpen && product && (
         <div className={classes.ProductContainer}>
           <FeatureCard2 
-          productName="OnePlus" 
-          description="It's a brand new phone" 
-          discount="10% off" 
-          currentPrice="$1000" 
-          priceInfo="Biddin's up and runnin" />
+          productName={product.productName}
+          description={product.description} 
+          discount={product.discount}
+          currentPrice={product.currentPrice}
+          priceInfo={product.priceInfo} />
         </div>
+        
       )}
     </div>
   );
